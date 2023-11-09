@@ -5,6 +5,8 @@ import request from '@utils/request';
 
 const urls = {
   ping: 'ping.json',
+  users: '/users',
+  notes: '/notes',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -26,6 +28,8 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
     return responseAPI;
   });
 };
-
+export const getAllUsers = () => {
+  return callAPI(urls.users, 'GET');
+};
 export const ping = () => callAPI(urls.ping, 'get');
-export const pingDB = () => callAPI('/users', 'GET');
+export const pingDB = () => callAPI(urls.users, 'GET');

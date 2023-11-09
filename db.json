@@ -43,6 +43,12 @@
       "email": "G@d.com",
       "password": "123456",
       "id": 1
+    },
+    {
+      "username": "Hiro",
+      "email": "hiroandika@gmail.com",
+      "password": "123456",
+      "id": 2
     }
   ]
 }
