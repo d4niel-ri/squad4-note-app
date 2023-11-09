@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import style from './style.module.scss';
+import { React, useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
-import LoginIcon from '@static/images/login.svg';
-import { loginRequest } from '@containers/Client/actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+import style from './style.module.scss';
+
+import RegisterIcon from '@static/images/signup.svg';
+
+import { registerRequest } from '@containers/Client/actions';
+
+const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    username: '',
     email: '',
     password: '',
   });
@@ -20,26 +24,16 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(loginRequest(formData));
+    dispatch(registerRequest(formData));
   };
-
-  const handleSignup = () => {
-    navigate('/Register');
+  const handleLogin = () => {
+    navigate('/Login');
   };
-  useEffect(() => {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      navigate('/');
-    } else {
-      navigate('/login');
-    }
-  }, [navigate]);
 
   return (
-    <div className={style.loginContainer}>
+    <div className={style.registerContainer}>
       <div className={style.imageContainer}>
         <div className={style.titleImage}>
           <FormattedMessage id="app_login_title" />
@@ -47,7 +41,7 @@ const Login = () => {
         <div className={style.slogan}>
           <FormattedMessage id="app_login_slogan" />
         </div>
-        <img src={LoginIcon} alt="icon" />
+        <img src={RegisterIcon} alt="icon" />
         <div className={style.description}>
           <FormattedMessage id="app_login_description" />
         </div>
@@ -57,13 +51,21 @@ const Login = () => {
         <div className={style.container}>
           <div className={style.titleForm}>
             <div className={style.title}>
-              <FormattedMessage id="app_login_hello" />
+              <FormattedMessage id="app_register_hello" />
             </div>
             <div className={style.greetings}>
-              <FormattedMessage id="app_login_greetings" />
+              <FormattedMessage id="app_register_greetings" />
             </div>
           </div>
           <div className={style.inputContainer}>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+            />
             <input
               type="email"
               name="email"
@@ -82,16 +84,16 @@ const Login = () => {
             />
           </div>
           <div className={style.buttonContainer}>
-            <button onClick={handleLogin}>
-              <FormattedMessage id="app_login_button" />
+            <button onClick={handleRegister}>
+              <FormattedMessage id="app_register_button" />
             </button>
           </div>
           <div className={style.signContainer}>
             <div className={style.signText}>
-              <FormattedMessage id="app_login_register" />
+              <FormattedMessage id="app_register_login" />
             </div>
-            <div className={style.signup} onClick={handleSignup}>
-              <FormattedMessage id="app_login_signup" />
+            <div className={style.login} onClick={handleLogin}>
+              <FormattedMessage id="app_login_button" />
             </div>
           </div>
         </div>
@@ -100,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

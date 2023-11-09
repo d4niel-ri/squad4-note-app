@@ -31,5 +31,9 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 export const getAllUsers = () => {
   return callAPI(urls.users, 'GET');
 };
+export const register = (data) => {
+  return callAPI(urls.users, 'POST', {}, {}, data);
+};
+
 export const ping = () => callAPI(urls.ping, 'get');
 export const pingDB = () => callAPI(urls.users, 'GET');

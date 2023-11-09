@@ -3,6 +3,7 @@ import MainLayout from '@layouts/MainLayout';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
 import NotFound from '@pages/NotFound';
+import Register from '@pages/Register';
 
 const routes = [
   {
@@ -14,6 +15,7 @@ const routes = [
   },
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
   { path: '/Login', name: 'Login', protected: false, component: Login, layout: MainLayout },
+  { path: '/Register', name: 'Register', protected: false, component: Register, layout: MainLayout },
 ];
 
 export default routes;

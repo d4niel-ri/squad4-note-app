@@ -18,4 +18,9 @@ export default {
   app_login_button: 'Log in',
   app_login_register: 'Don’t have an account yet?',
   app_login_signup: 'Sign up',
+
+  app_register_hello: 'Create New Account',
+  app_register_greetings: 'Welcome, please enter your detail',
+  app_register_button: 'Sign Up',
+  app_register_login: 'Already have an account?',
 };

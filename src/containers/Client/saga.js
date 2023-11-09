@@ -1,7 +1,10 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { loginRequest } from './actions';
-import { getAllUsers } from '@domain/api';
-import { LOGIN_REQUEST } from './constants';
+
+import { setLogin } from './actions';
+
+import { getAllUsers, register } from '@domain/api';
+
+import { LOGIN_REQUEST, REGISTER_REQUEST } from './constants';
 
 export function* handleLogin(action) {
   try {
@@ -12,6 +15,8 @@ export function* handleLogin(action) {
 
     if (userWithEmail) {
       localStorage.setItem('user', JSON.stringify(userWithEmail));
+      yield put(setLogin(true));
+      window.location.reload();
     } else {
       alert('User not found');
     }
@@ -19,7 +24,24 @@ export function* handleLogin(action) {
     yield put(error);
   }
 }
+export function* handleRegister(action) {
+  try {
+    const users = yield call(getAllUsers);
+    const { email, username } = action.data;
+
+    const userExists = users.some((user) => user.email === email || user.username === username);
+
+    if (userExists) {
+      alert('A user with the same email or username already exists.');
+    } else {
+      const newUser = yield call(register, action.data);
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
 
 export default function* loginSaga() {
   yield takeLatest(LOGIN_REQUEST, handleLogin);
+  yield takeLatest(REGISTER_REQUEST, handleRegister);
 }

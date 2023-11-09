@@ -1,6 +1,6 @@
 @import '@styles/base';
 
-.loginContainer {
+.registerContainer {
   @include directionX;
   .imageContainer {
     padding-left: 50px;
@@ -26,10 +26,10 @@
     img {
       margin-top: 40px;
       margin-left: 90px;
-      width: 400px;
+      width: 500px;
     }
     .description {
-      margin-top: 50px;
+      margin-top: 101.5px;
       color: #fff;
       font-size: 25px;
       font-style: normal;
@@ -53,12 +53,12 @@
         }
         .greetings {
           color: #b3b3b3;
+          width: 100%;
           text-align: center;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
           line-height: 18px;
-          width: 330px;
           margin-top: 10px;
         }
       }
@@ -108,7 +108,7 @@
           font-weight: 500;
           line-height: normal;
         }
-        .signup {
+        .login {
           color: #2498db;
           font-size: 14px;
           font-style: normal;
