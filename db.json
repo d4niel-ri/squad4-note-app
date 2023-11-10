@@ -73,6 +73,18 @@
       "email": "dfdf@gmail.com",
       "password": "dsdsddsdsds",
       "id": 6
+    },
+    {
+      "username": "hiro",
+      "email": "asdasdasdsadsa@gmail.com",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "username": "hirosdasa",
+      "email": "sadsadsadsaasdsa@gmail.com",
+      "password": "123456",
+      "id": 8
     }
   ]
 }

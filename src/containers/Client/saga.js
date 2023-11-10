@@ -8,6 +8,7 @@ import { LOGIN_REQUEST, REGISTER_REQUEST } from './constants';
 
 export function* handleLogin({ auth }) {
   try {
+    yield put(loginError(''));
     const users = yield call(getAllUsers);
     const userWithEmail = users.find((user) => user.email === auth.email && user.password === auth.password);
 
@@ -16,7 +17,7 @@ export function* handleLogin({ auth }) {
       yield put(setLogin(true));
       window.location.reload();
     } else {
-      yield put(loginError('Email and Password do not match'));
+      yield put(loginError('Email or Password do not match'));
     }
   } catch (error) {
     yield put(error);
@@ -24,6 +25,7 @@ export function* handleLogin({ auth }) {
 }
 export function* handleRegister({ data, handle }) {
   try {
+    yield put(loginError(''));
     const users = yield call(getAllUsers);
     const { email, username } = data;
 

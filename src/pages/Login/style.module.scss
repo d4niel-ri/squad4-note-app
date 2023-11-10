@@ -8,6 +8,12 @@
     width: 55%;
     height: 88.8vh;
     background: linear-gradient(151deg, #80d0ff 3.07%, #2498db 83.1%);
+    @include apply-at-xs-size {
+      display: none;
+    }
+    @include apply-at-xl-size {
+      display: block;
+    }
     .titleImage {
       color: #fff;
       font-size: 65px;
@@ -42,6 +48,15 @@
     align-items: center;
     justify-content: center;
     width: 45%;
+    @include apply-at-xs-size {
+      background: white;
+      width: 100vw;
+      height: 92vh;
+    }
+    @include apply-at-xl-size {
+      width: 45%;
+      height: 90vh;
+    }
     .container {
       .titleForm {
         text-align: center;
