@@ -3,7 +3,7 @@ import { all } from 'redux-saga/effects';
 
 import appSaga from '@containers/App/saga';
 import homeSaga from '@pages/Home/saga';
-import addNoteSaga from '@pages/AddNotes/saga';
+import addNoteSaga from '@pages/AddNote/saga';
 import loginSaga from '@containers/Client/saga';
 import detailSaga from '@pages/Detail/saga';
 

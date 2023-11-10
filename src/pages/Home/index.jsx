@@ -31,7 +31,7 @@ const Home = ({ notes, user }) => {
     <div>
       <div className={classes.conHome}>
         <div className={classes.createButton}>
-          <button onClick={() => navigate('/add-notes')} type="button">
+          <button onClick={() => navigate('/add-note')} type="button">
             Create Note
           </button>
         </div>
