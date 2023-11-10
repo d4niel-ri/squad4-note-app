@@ -1,16 +1,13 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { addNoteApi, getAllNotes } from '@domain/api';
-import { setAllNotes } from '@pages/Home/actions';
+import { addNote } from '@domain/api';
 import { showPopup, setLoading } from '@containers/App/actions';
 import { ADD_NOTE } from './constants';
 
-function* doAddNote(action) {
-  const { notes } = action;
+function* doAddNote({ note, navigate }) {
   yield put(setLoading(true));
   try {
-    yield call(addNoteApi, notes);
-    const response = yield call(getAllNotes);
-    yield put(setAllNotes(response));
+    yield call(addNote, note);
+    yield call(navigate);
   } catch (error) {
     yield put(showPopup());
   }

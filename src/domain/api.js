@@ -51,4 +51,4 @@ export const updateNote = (note) => {
   );
 };
 export const deleteNote = (id) => callAPI(`${urls.notes}/${id}`, 'DELETE');
-export const addNoteApi = (data) => callAPI(urls.notes, 'POST', {}, {}, data);
+export const addNote = (data) => callAPI(urls.notes, 'POST', {}, {}, data);
