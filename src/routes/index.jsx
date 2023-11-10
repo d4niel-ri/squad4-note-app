@@ -4,6 +4,7 @@ import Detail from '@pages/Detail';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
 import NotFound from '@pages/NotFound';
+import AddNotes from '@pages/AddNotes';
 import Register from '@pages/Register';
 
 const routes = [
@@ -12,6 +13,13 @@ const routes = [
     name: 'Home',
     protected: true,
     component: Home,
+    layout: MainLayout,
+  },
+  {
+    path: '/add-notes',
+    name: 'AddNotes',
+    protected: false,
+    component: AddNotes,
     layout: MainLayout,
   },
   {
