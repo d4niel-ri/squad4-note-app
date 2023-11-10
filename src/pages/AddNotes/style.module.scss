@@ -1,0 +1,29 @@
+@import '@styles/base';
+
+
+.conAddForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contentAddForm {
+  background-color: azure;
+  margin: 100px auto;
+  height: 50vh;
+  width: 60vh;
+  border-radius: 10px;
+  border: none;
+
+  .formAdd {
+    padding: 20px;
+
+    .titleInput {
+      // background-color: red;
+      height: 80px;
+    }
+    .descriptionInput {
+      // background-color: aqua;
+      height: 75px;
+    }
+  }
+}

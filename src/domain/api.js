@@ -1,10 +1,11 @@
 import config from '@config/index';
 import { merge } from 'lodash';
-
 import request from '@utils/request';
 
 const urls = {
   ping: 'ping.json',
+  notes: '/notes',
+  users: '/users',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -29,3 +30,6 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 
 export const ping = () => callAPI(urls.ping, 'get');
 export const pingDB = () => callAPI('/users', 'GET');
+export const getAllNotes = () => callAPI(urls.notes, 'GET');
+export const deleteNote = (noteId) => callAPI(`${urls.notes}/${noteId}`, 'DELETE');
+export const addNoteApi = (notes) => callAPI(urls.notes, 'POST', {}, {}, notes);
