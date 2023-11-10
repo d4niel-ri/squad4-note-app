@@ -2,6 +2,15 @@
 
 .registerContainer {
   @include directionX;
+  .error {
+    color: red;
+    font-size: 15px;
+  }
+  .dialogImage {
+    img {
+      margin-left: 100px;
+    }
+  }
   .imageContainer {
     padding-left: 50px;
     padding-top: 10px;

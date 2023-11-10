@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
-import { setLogin, setUser } from './actions';
+import { loginError, setLogin, setUser } from './actions';
 
 import { getAllUsers, register } from '@domain/api';
 
@@ -16,26 +16,27 @@ export function* handleLogin({ auth }) {
       yield put(setLogin(true));
       window.location.reload();
     } else {
-      alert('User not found');
+      yield put(loginError('Email and Password do not match'));
     }
   } catch (error) {
     yield put(error);
   }
 }
-export function* handleRegister(action) {
+export function* handleRegister({ data, handle }) {
   try {
     const users = yield call(getAllUsers);
-    const { email, username } = action.data;
+    const { email, username } = data;
 
     const userExists = users.some((user) => user.email === email || user.username === username);
 
     if (userExists) {
-      alert('A user with the same email or username already exists.');
+      yield put(loginError('A user with the same email or username already exists.'));
     } else {
-      const newUser = yield call(register, action.data);
+      const newUser = yield call(register, data);
+      yield call(handle);
     }
   } catch (error) {
-    alert(error.message);
+    yield put(loginError(error));
   }
 }
 

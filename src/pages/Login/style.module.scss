@@ -64,14 +64,24 @@
       }
       .inputContainer {
         margin-top: 20px;
-        input {
+        .error {
+          color: red;
+          font-size: 15px;
+        }
+        .inputCont {
           margin-top: 15px;
-          width: 100%;
-          height: 36px;
-          border-radius: 5px;
-          border: 1px solid #e5e5e5;
-          background: #fff;
-          padding-left: 10px;
+          .error {
+            color: red;
+            font-size: 15px;
+          }
+          input {
+            width: 100%;
+            height: 36px;
+            border-radius: 5px;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            padding-left: 10px;
+          }
         }
       }
       .buttonContainer {

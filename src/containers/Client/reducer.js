@@ -7,13 +7,14 @@ import {
   LOGOUT_REQUEST,
   REGISTER_REQUEST,
   SET_USER,
+  LOGIN_ERROR,
 } from '@containers/Client/constants';
 
 export const initialState = {
   user: null,
-  register: null,
   login: false,
   token: null,
+  error: null,
 };
 
 export const storedKey = ['token', 'login', 'user'];
@@ -28,20 +29,17 @@ const clientReducer = (state = initialState, action) =>
         draft.token = action.token;
         break;
       case SET_USER:
-        console.log('action', '<< ACTION');
         draft.user = action.user;
-        console.log(action.user, '<< ACTION USER');
         break;
       case LOGIN_REQUEST:
         draft.user = action.auth;
-        break;
-      case REGISTER_REQUEST:
-        draft.register = action.data;
         break;
       case LOGOUT_REQUEST:
         draft.user = null;
         draft.login = false;
         break;
+      case LOGIN_ERROR:
+        draft.error = action.error;
     }
   });
 

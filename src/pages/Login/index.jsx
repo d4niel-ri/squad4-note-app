@@ -1,37 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import style from './style.module.scss';
 import { FormattedMessage } from 'react-intl';
-import LoginIcon from '@static/images/login.svg';
-import { loginRequest } from '@containers/Client/actions';
 import { connect, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { selectUser } from '@containers/Client/selectors';
 
-const Login = ({ userData }) => {
+import LoginIcon from '@static/images/login.svg';
+
+import { loginRequest } from '@containers/Client/actions';
+import { selectUser, selectError } from '@containers/Client/selectors';
+
+import style from './style.module.scss';
+
+const Login = ({ userData, error }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = (name, value) => {
+    let errors = {};
+    if (name === 'email') {
+      if (!value) {
+        errors.email = 'Email is required';
+      }
+    }
+    if (name === 'password') {
+      if (!value) {
+        errors.password = 'Password is required';
+      }
+    }
+    return errors;
+  };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      ...validateForm(name, value),
     });
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(loginRequest(formData));
+    const newErrors = {
+      ...validateForm('email', formData.email),
+      ...validateForm('password', formData.password),
+    };
+    if (Object.keys(newErrors).length > 0) {
+      setFormErrors(newErrors);
+    } else {
+      setFormErrors({});
+      dispatch(loginRequest(formData));
+    }
   };
 
   const handleSignup = () => {
     navigate('/Register');
   };
+
   useEffect(() => {
     if (userData) {
       navigate('/');
@@ -66,22 +100,30 @@ const Login = ({ userData }) => {
             </div>
           </div>
           <div className={style.inputContainer}>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <div className={style.error}>{error}</div>
+            <div className={style.inputCont}>
+              <div className={style.error}>{formErrors.email}</div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={style.inputCont}>
+              <div className={style.error}>{formErrors.password}</div>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
           </div>
           <div className={style.buttonContainer}>
             <button onClick={handleLogin}>
@@ -103,11 +145,13 @@ const Login = ({ userData }) => {
 };
 
 Login.propTypes = {
-  userData: PropTypes.object.isRequired,
+  userData: PropTypes.object,
+  error: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
   userData: selectUser,
+  error: selectError,
 });
 
 export default connect(mapStateToProps)(Login);
