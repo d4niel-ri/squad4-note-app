@@ -23,6 +23,7 @@ export function* handleLogin({ auth }) {
     yield put(error);
   }
 }
+
 export function* handleRegister({ data, handleSuccess }) {
   try {
     yield put(loginError(''));
