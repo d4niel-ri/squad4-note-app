@@ -5,6 +5,8 @@ import request from '@utils/request';
 
 const urls = {
   ping: 'ping.json',
+  users: '/users',
+  notes: '/notes',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -28,4 +30,8 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 };
 
 export const ping = () => callAPI(urls.ping, 'get');
-export const pingDB = () => callAPI('/users', 'GET');
+export const pingDB = () => callAPI(urls.users, 'GET');
+// eslint-disable-next-line object-shorthand
+export const getNoteByID = (id) => callAPI(urls.notes, 'GET', {}, { id: id });
+export const updateNote = (note) => callAPI(`${urls.notes}/${note.id}`, 'PUT', {}, {}, note);
+export const deleteNote = (id) => callAPI(`${urls.notes}/${id}`, 'DELETE');
