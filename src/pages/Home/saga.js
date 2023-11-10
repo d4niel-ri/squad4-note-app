@@ -4,10 +4,11 @@ import { setAllNotes } from '@pages/Home/actions';
 import { showPopup, setLoading } from '@containers/App/actions';
 import { GET_ALL_NOTES, DELETE_NOTE } from './constants';
 
-function* doFetch() {
+function* doFetch(action) {
+  const { idUser } = action;
   yield put(setLoading(true));
   try {
-    const response = yield call(getAllNotes);
+    const response = yield call(getAllNotes, idUser);
     yield put(setAllNotes(response));
   } catch (error) {
     yield put(showPopup());

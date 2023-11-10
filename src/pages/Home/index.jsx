@@ -7,16 +7,19 @@ import { FormattedMessage } from 'react-intl';
 
 import NoteCard from '@components/NoteCard/NoteCard';
 import { logoutRequest } from '@containers/Client/actions';
+import { selectUser } from '@containers/Client/selectors';
 import { selectNotes } from './selectors';
 import { getAllNotes } from './actions';
 import classes from './style.module.scss';
 
-const Home = ({ notes }) => {
+const Home = ({ notes, user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const idUser = user.id;
+  console.log(idUser, 'id user');
 
   useEffect(() => {
-    dispatch(getAllNotes());
+    dispatch(getAllNotes(idUser));
   }, []);
 
   const handleLogout = () => {
@@ -39,7 +42,9 @@ const Home = ({ notes }) => {
         </div>
         <div>
           <FormattedMessage id="app_greeting" />
-          <button onClick={handleLogout}>LOGOUT</button>
+          <button type="button" onClick={handleLogout}>
+            LOGOUT
+          </button>
         </div>
       </div>
     </div>
@@ -47,10 +52,12 @@ const Home = ({ notes }) => {
 };
 Home.propTypes = {
   notes: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   notes: selectNotes,
+  user: selectUser,
 });
 
 export default connect(mapStateToProps)(Home);
