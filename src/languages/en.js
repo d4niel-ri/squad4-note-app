@@ -29,4 +29,5 @@ export default {
 
   app_message_error_login: 'Email or Password do not match',
   app_message_error_register: 'A user with the same email or username already exists.',
+  app_message_create_notes: 'Create Note',
 };

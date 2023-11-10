@@ -40,12 +40,6 @@ const Home = ({ notes, user }) => {
             <NoteCard key={el.id} id={el.id} title={el.title} description={el.description} />
           ))}
         </div>
-        <div>
-          <FormattedMessage id="app_greeting" />
-          <button type="button" onClick={handleLogout}>
-            LOGOUT
-          </button>
-        </div>
       </div>
     </div>
   );
