@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import style from './style.module.scss';
 import { FormattedMessage } from 'react-intl';
 import LoginIcon from '@static/images/login.svg';
 import { loginRequest } from '@containers/Client/actions';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import { selectUser } from '@containers/Client/selectors';
 
-const Login = () => {
+const Login = ({ userData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -30,7 +33,6 @@ const Login = () => {
     navigate('/Register');
   };
   useEffect(() => {
-    const userData = localStorage.getItem('user');
     if (userData) {
       navigate('/');
     } else {
@@ -100,4 +102,12 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  userData: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = createStructuredSelector({
+  userData: selectUser,
+});
+
+export default connect(mapStateToProps)(Login);

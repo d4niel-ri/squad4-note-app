@@ -61,6 +61,12 @@
       "email": "dikanaxagm45@gmail.com",
       "password": "123456",
       "id": 4
+    },
+    {
+      "username": "phinconers",
+      "email": "phincon@gmail.com",
+      "password": "123456",
+      "id": 5
     }
   ]
 }

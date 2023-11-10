@@ -1,20 +1,18 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
-import { setLogin } from './actions';
+import { setLogin, setUser } from './actions';
 
 import { getAllUsers, register } from '@domain/api';
 
 import { LOGIN_REQUEST, REGISTER_REQUEST } from './constants';
 
-export function* handleLogin(action) {
+export function* handleLogin({ auth }) {
   try {
     const users = yield call(getAllUsers);
-    const userWithEmail = users.find(
-      (user) => user.email === action.auth.email && user.password === action.auth.password
-    );
+    const userWithEmail = users.find((user) => user.email === auth.email && user.password === auth.password);
 
     if (userWithEmail) {
-      localStorage.setItem('user', JSON.stringify(userWithEmail));
+      yield put(setUser(userWithEmail));
       yield put(setLogin(true));
       window.location.reload();
     } else {
