@@ -1,12 +1,13 @@
 import { produce } from 'immer';
 
-import { ADD_NOTE } from './constants';
+import { SET_LOADING, SET_NOTE } from './constants';
 
 export const initialState = {
-  notes: {
+  note: {
     title: '',
     description: '',
   },
+  loading: false,
 };
 
 export const storedKey = ['note'];
@@ -14,8 +15,12 @@ export const storedKey = ['note'];
 const addNoteReducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {
-      case ADD_NOTE:
-        draft.notes = { ...state.notes, ...action.payload };
+      case SET_NOTE:
+        draft.note = action.note;
+        break;
+
+      case SET_LOADING:
+        draft.loading = action.loading;
         break;
     }
   });

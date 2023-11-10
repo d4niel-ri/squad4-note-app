@@ -6,7 +6,7 @@ import detailReducer, { storedKey as storedDetailState } from '@pages/Detail/red
 import languageReducer from '@containers/Language/reducer';
 import homeReducer, { storedKey as storedHomeState } from '@pages/Home/reducer';
 
-import addNoteReducer from '@pages/AddNotes/reducer';
+import addNoteReducer from '@pages/AddNote/reducer';
 import { mapWithPersistor } from './persistence';
 
 const storedReducers = {

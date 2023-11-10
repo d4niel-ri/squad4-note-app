@@ -29,4 +29,6 @@ export default {
 
   app_message_error_login: 'Email atau Password Salah',
   app_message_error_register: 'Pengguna dengan email atau username yang diinput sudah terdaftar',
+
+  app_message_create_notes: 'Buat Note',
 };

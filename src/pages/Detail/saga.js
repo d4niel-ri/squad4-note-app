@@ -20,7 +20,7 @@ function* doUpdateNote({ note }) {
   yield put(setLoading(true));
   try {
     const response = yield call(updateNote, note);
-    yield put(setNote(response));
+    yield put(setNote(note));
   } catch (error) {
     yield put(showPopup());
   }

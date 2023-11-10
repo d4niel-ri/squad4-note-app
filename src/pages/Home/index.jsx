@@ -31,7 +31,7 @@ const Home = ({ notes, user }) => {
     <div>
       <div className={classes.conHome}>
         <div className={classes.createButton}>
-          <button onClick={() => navigate('/add-notes')} type="button">
+          <button onClick={() => navigate('/add-note')} type="button">
             Create Note
           </button>
         </div>
@@ -39,12 +39,6 @@ const Home = ({ notes, user }) => {
           {notes?.map((el) => (
             <NoteCard key={el.id} id={el.id} title={el.title} description={el.description} />
           ))}
-        </div>
-        <div>
-          <FormattedMessage id="app_greeting" />
-          <button type="button" onClick={handleLogout}>
-            LOGOUT
-          </button>
         </div>
       </div>
     </div>
