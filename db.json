@@ -2,37 +2,37 @@
   "notes": [
     {
       "id": 1,
-      "author_id" : 1,
+      "author_id": 1,
       "title": "Libur ke Bali",
-      "description": "Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali."
+      "description": "<p>Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali.</p>"
     },
     {
       "id": 2,
-      "author_id" : 1,
+      "author_id": 1,
       "title": "Push Up",
       "description": "Sehari minimal 30x ditaman"
     },
     {
       "id": 3,
-      "author_id" : 1,
+      "author_id": 1,
       "title": "Lari pagi",
-      "description": ".Lari di kebon raya Bogor, pada hari senin"
+      "description": "Lari di kebon raya Bogor, pada hari senin ggggggggggggggg ggggggggggggg mksamkagggggg"
     },
     {
       "id": 4,
-      "author_id" : 1,
+      "author_id": 1,
       "title": "Jemput mantan",
       "description": "Jemput mantan dan ngajak balikan di hari senin besok"
     },
     {
       "id": 5,
-      "author_id" : 1,
+      "author_id": 1,
       "title": "Gajian besok",
       "description": "Buat beli sayur, laundry, biokop, maxi 1,5jt"
     },
     {
       "id": 6,
-      "author_id" : 1,
+      "author_id": 1,
       "title": "Makan Padang malem ini",
       "description": "makan padang dipejaten malem ini bersama kawan"
     }
@@ -43,6 +43,30 @@
       "email": "G@d.com",
       "password": "123456",
       "id": 1
+    },
+    {
+      "username": "Hiro",
+      "email": "hiroandika@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "username": "hiro45",
+      "email": "andikanolas@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "hiro4",
+      "email": "dikanaxagm45@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "username": "phinconers",
+      "email": "phincon@gmail.com",
+      "password": "123456",
+      "id": 5
     }
   ]
 }
