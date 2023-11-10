@@ -31,6 +31,10 @@
 
     .toolbar {
       @include directionX;
+      gap: 10px;
+      .profileIcon {
+        width: 35px;
+      }
       .theme {
         @include directionX;
         align-items: center;

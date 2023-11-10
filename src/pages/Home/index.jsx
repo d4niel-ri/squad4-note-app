@@ -8,6 +8,7 @@ import { FormattedMessage } from 'react-intl';
 import NoteCard from '@components/NoteCard/NoteCard';
 import { logoutRequest } from '@containers/Client/actions';
 import { selectUser } from '@containers/Client/selectors';
+import { ping } from '@containers/App/actions';
 import { selectNotes } from './selectors';
 import { getAllNotes } from './actions';
 import classes from './style.module.scss';
@@ -16,7 +17,6 @@ const Home = ({ notes, user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const idUser = user.id;
-  console.log(idUser, 'id user');
 
   useEffect(() => {
     dispatch(getAllNotes(idUser));

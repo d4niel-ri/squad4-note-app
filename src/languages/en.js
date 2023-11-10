@@ -23,4 +23,10 @@ export default {
   app_register_greetings: 'Welcome, please enter your detail',
   app_register_button: 'Sign Up',
   app_register_login: 'Already have an account?',
+
+  app_register_popup: 'Register Success',
+  app_register_popup_button: 'Finish',
+
+  app_message_error_login: 'Email or Password do not match',
+  app_message_error_register: 'A user with the same email or username already exists.',
 };
