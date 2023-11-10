@@ -23,11 +23,11 @@ export const setUser = (user) => ({
   user,
 });
 
-export const registerRequest = (data, handle) => {
+export const registerRequest = (data, handleSuccess) => {
   return {
     type: REGISTER_REQUEST,
     data,
-    handle,
+    handleSuccess,
   };
 };
 

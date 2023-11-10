@@ -63,12 +63,12 @@ const Register = ({ userData, errorData }) => {
     return Object.values(tempErrors).every((x) => x === '');
   };
 
-  const handle = () => setOpen(true);
+  const handleSuccess = () => setOpen(true);
 
   const handleRegister = (e) => {
     e.preventDefault();
     if (validate()) {
-      dispatch(registerRequest(formData, handle));
+      dispatch(registerRequest(formData, handleSuccess));
     }
   };
   const handleLogin = () => {
