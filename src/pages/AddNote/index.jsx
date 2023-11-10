@@ -58,8 +58,9 @@ const AddNote = ({ note, user, loading }) => {
     setErrors({title: "", description: ""});
     // eslint-disable-next-line no-useless-return
     if (!validateInputs()) return;
+    console.log(user, "<<<< USER");
     
-    dispatch(addNote({...inputs, author_id: user.author_id}, navigateToHome));
+    dispatch(addNote({...inputs, author_id: user.id}, navigateToHome));
   }
 
   return (
