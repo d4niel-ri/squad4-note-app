@@ -13,6 +13,7 @@
     }
     @include apply-at-xl-size {
       display: block;
+      height: 90vh;
     }
     .titleImage {
       color: #fff;
