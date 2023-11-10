@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 import config from '@config/index';
 import { merge } from 'lodash';
 import request from '@utils/request';
@@ -29,7 +30,11 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 };
 
 export const ping = () => callAPI(urls.ping, 'get');
-export const pingDB = () => callAPI('/users', 'GET');
+export const pingDB = () => callAPI(urls.users, 'GET');
+// eslint-disable-next-line object-shorthand
+export const getAllUsers = () => callAPI(urls.users, 'GET');
 export const getAllNotes = () => callAPI(urls.notes, 'GET');
-export const deleteNote = (noteId) => callAPI(`${urls.notes}/${noteId}`, 'DELETE');
-export const addNoteApi = (notes) => callAPI(urls.notes, 'POST', {}, {}, notes);
+export const register = (data) => callAPI(urls.users, 'POST', {}, {}, data);
+export const getNoteByID = (id) => callAPI(urls.notes, 'GET', {}, { id: id });
+export const updateNote = (note) => callAPI(`${urls.notes}/${note.id}`, 'PUT', {}, {}, note);
+export const deleteNote = (id) => callAPI(`${urls.notes}/${id}`, 'DELETE');

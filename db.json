@@ -4,7 +4,7 @@
       "id": 1,
       "author_id": 1,
       "title": "Libur ke Bali",
-      "description": "Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali."
+      "description": "<p>Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali.</p>"
     },
     {
       "id": 2,
@@ -43,6 +43,30 @@
       "email": "G@d.com",
       "password": "123456",
       "id": 1
+    },
+    {
+      "username": "Hiro",
+      "email": "hiroandika@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "username": "hiro45",
+      "email": "andikanolas@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "hiro4",
+      "email": "dikanaxagm45@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "username": "phinconers",
+      "email": "phincon@gmail.com",
+      "password": "123456",
+      "id": 5
     }
   ]
 }
