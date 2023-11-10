@@ -7,18 +7,20 @@ import { FormattedMessage } from 'react-intl';
 import { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 import ReactQuill from 'react-quill';
 
 import DeleteDialog from '@components/DeleteDialog';
 import { selectLoading, selectNote } from '@pages/Detail/selectors';
+import { selectUser } from '@containers/Client/selectors';
 import { getNoteByID, updateNote } from './actions';
 
 import 'react-quill/dist/quill.snow.css';
 import classes from './style.module.scss';
 
-const Detail = ({ note, loading }) => {
+const Detail = ({ note, loading, user }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { ID_note } = useParams();
   const [ inputs, setInputs ] = useState({title: "", description: ""});
@@ -80,6 +82,11 @@ const Detail = ({ note, loading }) => {
 
   useEffect(() => {
     if (note) {
+      if (user.id !== parseInt(note.author_id, 10)) {
+        navigate('/');
+        return;
+      }
+
       console.log(note, "<< NOTE");
       setInputs({title: note.title, description: note.description});
     }
@@ -162,11 +169,13 @@ const Detail = ({ note, loading }) => {
 Detail.propTypes = {
   note: PropTypes.object,
   loading: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 const mapStateToProps = createStructuredSelector({
   note: selectNote,
   loading: selectLoading,
+  user: selectUser,
 })
 
 export default connect(mapStateToProps)(Detail);

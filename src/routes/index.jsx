@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/detail/:ID_note',
     name: 'Detail',
-    protected: false,
+    protected: true,
     component: Detail,
     layout: MainLayout,
   },
