@@ -1,14 +1,26 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
+import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
-import { ping } from '@containers/App/actions';
+import NoteCard from '@components/NoteCard/NoteCard';
 import { logoutRequest } from '@containers/Client/actions';
-import { useNavigate } from 'react-router-dom';
+import { selectUser } from '@containers/Client/selectors';
+import { ping } from '@containers/App/actions';
+import { selectNotes } from './selectors';
+import { getAllNotes } from './actions';
+import classes from './style.module.scss';
 
-const Home = () => {
+const Home = ({ notes, user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const idUser = user.id;
+
+  useEffect(() => {
+    dispatch(getAllNotes(idUser));
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -17,10 +29,35 @@ const Home = () => {
   };
   return (
     <div>
-      <FormattedMessage id="app_greeting" />
-      <button onClick={handleLogout}>LOGOUT</button>
+      <div className={classes.conHome}>
+        <div className={classes.createButton}>
+          <button onClick={() => navigate('/add-notes')} type="button">
+            Create Note
+          </button>
+        </div>
+        <div className={classes.conGrid}>
+          {notes?.map((el) => (
+            <NoteCard key={el.id} id={el.id} title={el.title} description={el.description} />
+          ))}
+        </div>
+        <div>
+          <FormattedMessage id="app_greeting" />
+          <button type="button" onClick={handleLogout}>
+            LOGOUT
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
+Home.propTypes = {
+  notes: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
-export default Home;
+const mapStateToProps = createStructuredSelector({
+  notes: selectNotes,
+  user: selectUser,
+});
+
+export default connect(mapStateToProps)(Home);

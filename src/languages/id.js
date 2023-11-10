@@ -26,4 +26,7 @@ export default {
 
   app_register_popup: 'Pendaftaran Berhasil',
   app_register_popup_button: 'Lanjutkan',
+
+  app_message_error_login: 'Email atau Password Salah',
+  app_message_error_register: 'Pengguna dengan email atau username yang diinput sudah terdaftar',
 };
