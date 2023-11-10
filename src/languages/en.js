@@ -23,4 +23,7 @@ export default {
   app_register_greetings: 'Welcome, please enter your detail',
   app_register_button: 'Sign Up',
   app_register_login: 'Already have an account?',
+
+  app_register_popup: 'Register Success',
+  app_register_popup_button: 'Finish',
 };

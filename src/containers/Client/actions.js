@@ -1,4 +1,5 @@
 import {
+  LOGIN_ERROR,
   LOGIN_REQUEST,
   LOGOUT_REQUEST,
   REGISTER_REQUEST,
@@ -22,10 +23,11 @@ export const setUser = (user) => ({
   user,
 });
 
-export const registerRequest = (data) => {
+export const registerRequest = (data, handleSuccess) => {
   return {
     type: REGISTER_REQUEST,
     data,
+    handleSuccess,
   };
 };
 
@@ -33,6 +35,13 @@ export const loginRequest = (auth) => {
   return {
     type: LOGIN_REQUEST,
     auth,
+  };
+};
+
+export const loginError = (error) => {
+  return {
+    type: LOGIN_ERROR,
+    error,
   };
 };
 

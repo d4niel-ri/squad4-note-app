@@ -10,10 +10,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   dispatch(ping());
-  // }, [dispatch]);
-
   const handleLogout = () => {
     localStorage.removeItem('user');
     dispatch(logoutRequest());
