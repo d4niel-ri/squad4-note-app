@@ -65,6 +65,7 @@ const Register = ({ userData, errorData }) => {
 
   const handleSuccess = () => setOpen(true);
 
+
   const handleRegister = (e) => {
     e.preventDefault();
     if (validate()) {
