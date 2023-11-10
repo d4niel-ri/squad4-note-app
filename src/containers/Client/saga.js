@@ -23,7 +23,8 @@ export function* handleLogin({ auth }) {
     yield put(error);
   }
 }
-export function* handleRegister({ data, handle }) {
+
+export function* handleRegister({ data, handleSuccess }) {
   try {
     yield put(loginError(''));
     const users = yield call(getAllUsers);
@@ -35,7 +36,7 @@ export function* handleRegister({ data, handle }) {
       yield put(loginError('A user with the same email or username already exists.'));
     } else {
       const newUser = yield call(register, data);
-      yield call(handle);
+      yield call(handleSuccess);
     }
   } catch (error) {
     yield put(loginError(error));
