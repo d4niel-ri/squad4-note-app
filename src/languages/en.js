@@ -29,4 +29,8 @@ export default {
 
   app_message_error_login: 'Email or Password do not match',
   app_message_error_register: 'A user with the same email or username already exists.',
+
+  app_message_delete_dialog_title: 'Delete',
+  app_message_delete_dialog_body: 'Are you sure you want to delete?',
+  app_message_delete_dialog_cancel: 'cancel',
 };

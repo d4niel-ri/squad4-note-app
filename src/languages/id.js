@@ -29,4 +29,8 @@ export default {
 
   app_message_error_login: 'Email atau Password Salah',
   app_message_error_register: 'Pengguna dengan email atau username yang diinput sudah terdaftar',
+
+  app_message_delete_dialog_title: 'Hapus',
+  app_message_delete_dialog_body: 'Anda yakin ingin menghapus item ini?',
+  app_message_delete_dialog_cancel: 'Batal',
 };
