@@ -23,4 +23,7 @@ export default {
   app_register_greetings: 'Selamat datang, silahkan masukkan data',
   app_register_button: 'Daftar',
   app_register_login: 'Sudah mempunyai akun?',
+
+  app_register_popup: 'Pendaftaran Berhasil',
+  app_register_popup_button: 'Lanjutkan',
 };
