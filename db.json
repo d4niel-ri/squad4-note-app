@@ -2,8 +2,8 @@
   "notes": [
     {
       "id": 1,
-      "author_id": "1",
-      "title": "Libur ke Bandung",
+      "author_id": 1,
+      "title": "Libur ke Bali",
       "description": "<p>Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali.</p>"
     },
     {
@@ -16,7 +16,7 @@
       "id": 3,
       "author_id": 1,
       "title": "Lari pagi",
-      "description": ".Lari di kebon raya Bogor, pada hari senin"
+      "description": "Lari di kebon raya Bogor, pada hari senin ggggggggggggggg ggggggggggggg mksamkagggggg"
     },
     {
       "id": 4,
@@ -67,24 +67,6 @@
       "email": "phincon@gmail.com",
       "password": "123456",
       "id": 5
-    },
-    {
-      "username": "daniel",
-      "email": "dfdf@gmail.com",
-      "password": "dsdsddsdsds",
-      "id": 6
-    },
-    {
-      "username": "hiro",
-      "email": "asdasdasdsadsa@gmail.com",
-      "password": "123456",
-      "id": 7
-    },
-    {
-      "username": "hirosdasa",
-      "email": "sadsadsadsaasdsa@gmail.com",
-      "password": "123456",
-      "id": 8
     }
   ]
 }
