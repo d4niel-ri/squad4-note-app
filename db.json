@@ -2,8 +2,8 @@
   "notes": [
     {
       "id": 1,
-      "author_id": 1,
-      "title": "Libur ke Bali",
+      "author_id": "1",
+      "title": "Libur ke Bandung",
       "description": "<p>Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali.</p>"
     },
     {
